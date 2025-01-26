@@ -6,7 +6,7 @@
     <title>password genrator</title>
     <style>
       body,html{
-        background-color: rgb(119, 102, 102);
+        background-color: rgb(177, 206, 228);
           margin: 0%;
           padding: 0%;
           height: 100%;
@@ -24,19 +24,20 @@
       }
       .box{
           text-align: center;
-          background-color: rgb(184, 196, 199);
+          background-color: rgb(144, 199, 213);
           text-align: center;
           padding: 20px 100px;
           border-radius: 20px;
           flex-direction: column;
+          box-shadow: 10px 12px rgb(145, 190, 193)
       }
      
    
       button{
-          background-color: black;
-          color: aliceblue;
+          background-color: rgb(90, 194, 217);
+          color: rgb(0, 0, 0);
           padding: 10px;
-          border-radius: 100px;
+          border-radius: 15px;
       
       }
        
@@ -68,24 +69,20 @@
         const symbol ="!@#$%^&*";
         let pass ="";
 
-        pass += name[(Math.floor(Math.random() * name.length))];
-        pass += name[(Math.floor(Math.random() * name.length))];
-        pass += name[(Math.floor(Math.random() * name.length))];
-        pass += name[(Math.floor(Math.random() * name.length))];
-
-        pass += lastname[(Math.floor(Math.random() * lastname.length))];
-        pass += lastname[(Math.floor(Math.random() * lastname.length))];
-
-        pass += symbol[(Math.floor(Math.random() * symbol.length))];
-
-        pass += number[(Math.floor(Math.random() * number.length))];
-        pass += number[(Math.floor(Math.random() * number.length))];
-        pass += number[(Math.floor(Math.random() * number.length))];
-        pass += number[(Math.floor(Math.random() * number.length))];
-        pass += number[(Math.floor(Math.random() * number.length))];
-
-        password.value=pass;
+        for (let i = 0; i < 12; i++) {
+          if (i < 4) {
+            pass += name[Math.floor(Math.random() * name.length)];
+          } else if (i < 6) {
+            pass += lastname[Math.floor(Math.random() * lastname.length)];
+          } else if (i < 7) {
+            pass += symbol[Math.floor(Math.random() * symbol.length)];
+          } else {
+            pass += number[Math.floor(Math.random() * number.length)];
+          }
+        }
+        password.value = pass;
       }
+       
 	
     </script>
   </body>
