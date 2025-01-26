@@ -1,89 +1,111 @@
+
+
+
 <!DOCTYPE html>
-
 <html>
-  <head>
-    
-    <title>password genrator</title>
-    <style>
-      body,html{
-        background-color: rgb(177, 206, 228);
-          margin: 0%;
-          padding: 0%;
-          height: 100%;
-      }
-      p{
-        font-size: 100%;
-       font-weight: bold;
-      }
-      .container{
-          display: flex;
-          height: 100%;
-          justify-content: center;
-          align-items: center;
-          flex-direction: column;
-      }
-      .box{
-          text-align: center;
-          background-color: rgb(144, 199, 213);
-          text-align: center;
-          padding: 20px 100px;
-          border-radius: 20px;
-          flex-direction: column;
-          box-shadow: 10px 12px rgb(145, 190, 193)
-      }
-     
-   
-      button{
-          background-color: rgb(90, 194, 217);
-          color: rgb(0, 0, 0);
-          padding: 10px;
-          border-radius: 15px;
-      
-      }
-       
-      
+<head>
+  <title>Password Generator</title>
+  <style>
+    body, html {
+      background-color: #98becd; 
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .box {
+      text-align: center;
+      background-color: #ADD8E6; 
+      padding: 20px 100px;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .box h1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"], input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #f0f0f0;
+    }
+
+    button {
+      background-color: #4CAF50; 
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #3e8e41;
+    }
+
+    #password {
+      background-color: #f0f0f0;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      width: 100%;
+    }
   </style>
-    
-  </head>
-  <body>
-   <div class="container">
+</head>
+<body>
+  <div class="container">
     <div class="box">
-      <p>PASSWORD GENRATER</p>
-      <div class="input">
-        <input type="text"  id="name" placeholder="enter your name"><br><br>
-        <input type="text"  id="lastname" placeholder="enter your last name"><br><br>
-        <input type="number"  id="number" placeholder="enter number"><br><br>
-      </div>  
+      <h1>Password Generator</h1>
+      <input type="text" id="name" placeholder="Enter your name"><br><br>
+      <input type="text" id="lastname" placeholder="Enter your last name"><br><br>
+      <input type="number" id="number" placeholder="Enter a number"><br><br>
       <input type="text" id="password"><br><br> 
-      <button onclick="pass()">GENRATE PASSWORD</button><br><br>
-    </div> 
+
+      <button onclick="pass()">Generate Password</button>
+    </div>
   </div>
-    <script >
-      const password =document.getElementById('password'); 
 
-      function pass(){
+  <script>
+    const password = document.getElementById('password');
 
-        const name =  document.getElementById("name").value;
-        const lastname =  document.getElementById("lastname").value;
-        const number =  document.getElementById("number").value;
-        const symbol ="!@#$%^&*";
-        let pass ="";
+    function pass() {
+      const name = document.getElementById("name").value;
+      const lastname = document.getElementById("lastname").value;
+      const number = document.getElementById("number").value;
+      const symbol = "!@#$%^&*";
+      let pass = "";
 
-        for (let i = 0; i < 12; i++) {
-          if (i < 4) {
-            pass += name[Math.floor(Math.random() * name.length)];
-          } else if (i < 6) {
-            pass += lastname[Math.floor(Math.random() * lastname.length)];
-          } else if (i < 7) {
-            pass += symbol[Math.floor(Math.random() * symbol.length)];
-          } else {
-            pass += number[Math.floor(Math.random() * number.length)];
-          }
+      for (let i = 0; i < 12; i++) {
+        if (i < 4) {
+          pass += name[Math.floor(Math.random() * name.length)];
+        } else if (i < 6) {
+          pass += lastname[Math.floor(Math.random() * lastname.length)];
+        } else if (i < 7) {
+          pass += symbol[Math.floor(Math.random() * symbol.length)];
+        } else {
+          pass += number[Math.floor(Math.random() * number.length)];
         }
-        password.value = pass;
       }
-       
-	
-    </script>
-  </body>
+
+      password.value = pass;
+    }
+  </script>
+</body>
 </html>
+
+
